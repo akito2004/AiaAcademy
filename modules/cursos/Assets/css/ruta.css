@@ -1,0 +1,152 @@
+
+/* === RUTA DE APRENDIZAJE === */
+.ruta-aprendizaje-seccion {
+    margin-top: 60px;
+    padding: 50px 20px;
+    border-top: 1px solid #334155;
+}
+
+.ruta-titulo {
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.ruta-subtitulo {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 50px;
+}
+
+.ruta-contenedor {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Línea vertical que conecta todos los pasos */
+.ruta-linea {
+    position: absolute;
+    left: 40px;
+    top: 60px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #3b82f6, #6366f1);
+    z-index: 0;
+}
+
+/* Cada paso */
+.paso-item {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Número circular */
+.paso-numero {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #1e293b;
+    border: 3px solid #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-weight: 700;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.paso-numero.activo {
+    border-color: #3b82f6;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Tarjeta del contenido */
+.paso-tarjeta {
+    flex: 1;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 22px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    opacity: 0.8;
+}
+
+.paso-tarjeta.activa {
+    opacity: 1;
+    border-color: #3b82f6;
+}
+
+.paso-tarjeta:hover {
+    transform: translateY(-3px);
+    border-color: #4f46e5;
+}
+
+.paso-titulo {
+    color: #fff;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+}
+
+.paso-descripcion {
+    color: #94a3b8;
+    margin: 0 0 14px 0;
+    line-height: 1.5;
+}
+
+/* Etiquetas de estado */
+.paso-etiqueta {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.etiqueta-disponible {
+    background: #10b981;
+    color: #fff;
+}
+
+.etiqueta-proximamente {
+    background: #f59e0b;
+    color: #000;
+}
+
+.etiqueta-pendiente {
+    background: #475569;
+    color: #cbd5e1;
+}
+
+.paso-duracion {
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .paso-item {
+        gap: 15px;
+    }
+
+    .paso-numero {
+        width: 60px;
+        height: 60px;
+        font-size: 16px;
+    }
+
+    .ruta-linea {
+        left: 30px;
+    }
+
+    .paso-tarjeta {
+        padding: 15px;
+    }
+}

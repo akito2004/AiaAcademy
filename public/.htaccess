@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Si la ruta apunta a un archivo o directorio real, no reescribir.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L,QSA]

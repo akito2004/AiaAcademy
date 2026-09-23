@@ -1,0 +1,26 @@
+﻿/* Estilos del modulo Contactos */
+.contacto {
+  display: grid; gap: 2rem;
+  background: var(--color-blanco); padding: 2rem; border-radius: var(--radio);
+  box-shadow: var(--sombra); border: 1px solid var(--color-borde);
+}
+.contacto h1 { margin-bottom: .5rem; color: var(--color-azul); }
+.contacto-intro p { color: var(--color-texto-suave); }
+.contacto-info { list-style: none; margin-top: 1rem; }
+.contacto-info li { margin-bottom: .5rem; color: var(--color-texto); }
+
+.form-contacto { display: grid; gap: 1rem; max-width: 640px; }
+.campo { display: grid; gap: .35rem; }
+.campo label { font-weight: 600; color: var(--color-texto); }
+.campo input,
+.campo textarea {
+  padding: .6rem .8rem; border: 1px solid var(--color-borde); border-radius: var(--radio);
+  font: inherit; color: var(--color-texto); background: var(--color-blanco);
+}
+.campo input:focus,
+.campo textarea:focus { outline: 2px solid var(--color-naranja); border-color: transparent; }
+
+.alerta { padding: 1rem; border-radius: var(--radio); margin-bottom: 1rem; }
+.alerta-exito { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+.alerta-error { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+.alerta-error ul { margin: .5rem 0 0 1.25rem; }

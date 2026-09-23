@@ -1,0 +1,1109 @@
+/* ==================================================
+   AVANCE.CSS — ESTILOS COMPLETOS DE LA PÁGINA DE AVANCE
+   Versión: 2.0 | Total: 1000+ líneas
+   ================================================== */
+
+/* ==================================================
+   1. RESETEO Y BASE — FONDO PANTALLA COMPLETA
+   ================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #020617 0%, #0f172a 40%, #1e293b 70%, #0f172a 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Inter', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================================================
+   2. CONTENEDOR PRINCIPAL
+   ================================================== */
+.pagina-avance {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 32px 60px;
+    color: #f8fafc;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Elementos decorativos de fondo */
+.pagina-avance::before,
+.pagina-avance::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pagina-avance::before {
+    top: -80px;
+    right: 10%;
+    background: #3b82f6;
+}
+
+.pagina-avance::after {
+    bottom: -10px;
+    left: 5%;
+    background: #10b981;
+}
+
+/* ==================================================
+   3. ENCABEZADO
+   ================================================== */
+.avance-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.encabezado-izquierda {
+    flex: 1;
+    min-width: 300px;
+}
+
+.enlace-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+}
+
+.enlace-volver:hover {
+    color: #ffffff;
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateX(-4px);
+}
+
+.titulo-curso {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.subtitulo-curso {
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+/* ==================================================
+   4. BARRA DE PROGRESO GENERAL
+   ================================================== */
+.bloque-progreso-general {
+    min-width: 260px;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.barra-fondo {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.barra-llenada {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+    border-radius: 50px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.4);
+    position: relative;
+}
+
+.barra-llenada::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+    animation: brillo 2s infinite;
+}
+
+@keyframes brillo {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.texto-progreso {
+    font-size: 14px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.btn-certificado {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btn-certificado:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+/* ==================================================
+   5. NAVEGACIÓN — BOTONES PRINCIPALES
+   ================================================== */
+.navegacion-botones {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-navegacion {
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-contenido {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-contenido:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-examenes {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-examenes:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* ==================================================
+   6. CLASE EN VIVO
+   ================================================== */
+.seccion-clase-vivo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.seccion-clase-vivo::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(180deg, #3b82f6, #6366f1);
+}
+
+.icono-clase {
+    font-size: 40px;
+    line-height: 1;
+    opacity: 0.9;
+}
+
+.contenido-clase {
+    flex: 1;
+    min-width: 280px;
+}
+
+.contenido-clase h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #93c5fd;
+}
+
+.fecha-clase {
+    margin: 0 0 16px 0;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.enlaces-clase {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.boton-ingresar-meet {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    color: #ffffff;
+    padding: 12px 26px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+    transition: all 0.3s ease;
+}
+
+.boton-ingresar-meet:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.5);
+}
+
+.enlace-grabacion {
+    color: #93c5fd;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 12px 20px;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.enlace-grabacion:hover {
+    background: rgba(96, 165, 250, 0.1);
+    border-color: rgba(96, 165, 250, 0.5);
+}
+
+/* ==================================================
+   7. CONTENEDOR DOBLE — CONTENIDO + TEMARIO
+   ================================================== */
+.contenedor-doble {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 968px) {
+    .contenedor-doble {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .pagina-avance {
+        padding: 24px 16px 40px;
+    }
+    .titulo-curso {
+        font-size: 28px;
+    }
+}
+
+/* ==================================================
+   8. REPRODUCTOR DE VIDEO
+   ================================================== */
+.caja-reproductor {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    margin-bottom: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.titulo-bloque {
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.reproductor-estilo {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    background: #000;
+}
+
+.sin-video {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    color: #64748b;
+}
+
+/* ==================================================
+   9. CAJA DE INFORMACIÓN DE LA LECCIÓN
+   ================================================== */
+.caja-info-leccion {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nombre-leccion {
+    margin: 0 0 12px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.etiqueta-duracion {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(16, 185, 129, 0.15);
+    color: #6ee7b7;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+}
+
+.bloque-contenido {
+    margin-bottom: 28px;
+}
+
+.bloque-contenido h3 {
+    font-size: 15px;
+    color: #e2e8f0;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+}
+
+.texto-introduccion {
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Lista de archivos adjuntos */
+.lista-archivos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.enlace-archivo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #93c5fd;
+    text-decoration: none;
+    padding: 10px 16px;
+    background: rgba(59, 130, 246, 0.08);
+    border-radius: 8px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    transition: all 0.3s ease;
+}
+
+.enlace-archivo:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* ==================================================
+   10. NOTAS PERSONALES
+   ================================================== */
+.bloque-notas-personales {
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bloque-notas-personales h3 {
+    font-size: 15px;
+    color: #e2e8f0;
+    margin: 0 0 14px 0;
+    font-weight: 600;
+}
+
+#cuadro-notas {
+    width: 100%;
+    min-height: 140px;
+    background: rgba(2, 6, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 18px 20px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: vertical;
+    margin-bottom: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#cuadro-notas:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.boton-guardar-notas {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.boton-guardar-notas:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+}
+
+/* ==================================================
+   11. TEMARIO LATERAL
+   ================================================== */
+.panel-lista-lecciones {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 28px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    position: sticky;
+    top: 24px;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.panel-lista-lecciones::-webkit-scrollbar {
+    width: 6px;
+}
+
+.panel-lista-lecciones::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.titulo-temario {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 28px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.lista-temas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-seccion {
+    margin-bottom: 24px;
+}
+
+.item-seccion > strong {
+    display: block;
+    padding: 12px 16px;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(37, 99, 235, 0.05) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    color: #93c5fd;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.lista-lecciones {
+    list-style: none;
+    padding: 0 0 0 4px;
+    margin: 0;
+}
+
+.item-tema {
+    margin-bottom: 6px;
+}
+
+.enlace-tema {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enlace-tema:hover {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-left-color: #3b82f6;
+    color: #ffffff;
+    transform: translateX(6px);
+    box-shadow: -4px 0 12px rgba(59, 130, 246, 0.15);
+}
+
+.enlace-tema.activa {
+    background: rgba(59, 130, 246, 0.15);
+    border-left-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.ya-completada .enlace-tema {
+    background: rgba(16, 185, 129, 0.08);
+    border-left-color: #10b981;
+    opacity: 1;
+}
+
+.ya-completada .enlace-tema:hover {
+    background: rgba(16, 185, 129, 0.15);
+    box-shadow: -4px 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.indicador-estado {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+    filter: drop-shadow(0 0 2px currentColor);
+}
+
+.texto-tema {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.tiempo-tema {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.sin-lecciones,
+.sin-contenido {
+    color: #64748b;
+    padding: 40px 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* ==================================================
+   12. SECCIÓN DE EXÁMENES / CUESTIONARIO
+   ================================================== */
+.seccion-examen {
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.seccion-examen h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #e0e7ff;
+    margin: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pregunta {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: all 0.25s ease;
+}
+
+.pregunta:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.texto-pregunta {
+    font-size: 15px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0 0 14px 0;
+}
+
+.opcion {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #cbd5e1;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.opcion:hover {
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.25);
+}
+
+.opcion.seleccionada {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #6ee7b7;
+}
+
+.opcion input {
+    accent-color: #10b981;
+}
+
+.boton-enviar-examen {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+}
+
+.boton-enviar-examen:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+.resultado-examen {
+    margin-top: 20px;
+    padding: 18px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: none;
+    line-height: 1.6;
+}
+
+.resultado-aprobado {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #6ee7b7;
+}
+
+.resultado-reprobado {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+}
+
+/* ==================================================
+   13. CUADRO DE HISTORIAL / NOTAS
+   ================================================== */
+.cuadro-historial {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f1f5f9;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow:
+        inset 0 0 0 1px rgba(99, 102, 241, 0.2),
+        0 12px 40px rgba(0, 0, 0, 0.35);
+    max-height: 550px;
+    overflow-y: auto;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    margin-top: 32px;
+}
+
+.cuadro-historial h3,
+.cuadro-historial .titulo {
+    color: #e0e7ff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.cuadro-historial .entrada {
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 10px;
+    border-left: 3px solid #6366f1;
+    transition: all 0.25s ease;
+}
+
+.cuadro-historial .entrada:hover {
+    background: rgba(51, 65, 85, 0.7);
+    border-left-color: #818cf8;
+    transform: translateX(4px);
+}
+
+.cuadro-historial .fecha {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+
+.cuadro-historial .etiqueta {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.2);
+    color: #c7d2fe;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-right: 10px;
+    margin-bottom: 6px;
+}
+
+.cuadro-historial .texto {
+    font-size: 15px;
+    color: #e2e8f0;
+}
+
+.cuadro-historial::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cuadro-historial::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 3px;
+}
+
+/* ==================================================
+   14. NOTIFICACIONES
+   ================================================== */
+.notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    max-width: 340px;
+}
+
+.notificacion.mostrar {
+    transform: translateX(0);
+}
+
+.notificacion.exito {
+    background: #065f47;
+    color: #d1fae3;
+    border-left: 4px solid #10b981;
+}
+
+.notificacion.error {
+    background: #7f1d1d;
+    color: #fecaca;
+    border-left: 4px solid #ef4444;
+}
+
+.notificacion.aviso {
+    background: #78350f;
+    color: #fef3c7;
+    border-left: 4px solid #f59e0b;
+}
+
+.notificacion.info {
+    background: #1e3a8a;
+    color: #dbeafe;
+    border-left: 4px solid #3b82f6;
+}
+
+/* ==================================================
+   15. UTILIDADES Y RESPONSIVIDAD
+   ================================================== */
+.oculto {
+    display: none !important;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.mt-4 { margin-top: 32px; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mb-4 { margin-bottom: 32px; }
+
+.texto-pequeno {
+    font-size: 13px;
+}
+
+.texto-claro {
+    color: #94a3b8;
+}
+
+.texto-exito {
+    color: #6ee7b7;
+}
+
+.texto-error {
+    color: #fca5a5;
+}
+
+@media (max-width: 768px) {
+    .navegacion-botones {
+        flex-direction: column;
+    }
+    .btn-navegacion {
+        width: 100%;
+        justify-content: center;
+    }
+    .seccion-clase-vivo {
+        flex-direction: column;
+        text-align: center;
+    }
+    .enlaces-clase {
+        width: 100%;
+        justify-content: center;
+    }
+    .caja-info-leccion {
+        padding: 24px 20px;
+    }
+    .panel-lista-lecciones {
+        position: static;
+        max-height: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-curso {
+        font-size: 22px;
+    }
+    .bloque-progreso-general {
+        width: 100%;
+    }
+    .enlace-tema {
+        padding: 12px 14px;
+    }
+    .boton-ingresar-meet,
+    .enlace-grabacion {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* ==================================================
+   16. ANIMACIONES
+   ================================================== */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aparecer {
+    animation: aparecer 0.5s ease forwards;
+}
+
+.aparecer-retrasado {
+    opacity: 0;
+    animation: aparecer 0.5s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes latido {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.latido {
+    animation: latido 2s infinite;
+}
+
+@keyframes desplazamiento {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gradiente-animado {
+    background-size: 200% 200%;
+    animation: desplazamiento 3s ease infinite;
+}
+
+/* ==================================================
+   17. ESTADOS DE INTERACCIÓN
+   ================================================== */
+button:disabled,
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+/* ==================================================
+   18. MEJORAS DE ACCESIBILIDAD
+   ================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==================================================
+   19. BORDES Y SOMBRAS DINÁMICAS
+   ================================================== */
+.borde-brillo-azul {
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+.borde-brillo-verde {
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+.borde-brillo-dorado {
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);
+}
+
+/* ==================================================
+   20. FINAL — REGLAS ADICIONALES
+   ================================================== */
+hr.separador {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 32px 0;
+}
+
+.etiqueta-estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.etiqueta-estado.completado {
+    background: rgba(16, 185, 129, 0.15);
+    color: #6ee7b7;
+}
+
+.etiqueta-estado.actual {
+    background: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+}
+
+.etiqueta-estado.pendiente {
+    background: rgba(100, 116, 139, 0.15);
+    color: #94a3b8;
+}
+
+/* ==================================================
+   FIN DEL ARCHIVO — avance.css
+   ================================================== */

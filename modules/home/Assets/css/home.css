@@ -1,0 +1,18 @@
+/* Estilos propios del modulo home (no contaminan otros modulos) */
+.hero {
+  text-align: center; padding: 4rem 0;
+  background: linear-gradient(135deg, var(--color-azul) 0%, var(--color-naranja) 100%);
+  color: var(--color-blanco); border-radius: var(--radio);
+}
+.hero h1 {
+  font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-blanco);
+}
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; opacity: .95; }
+.hero-actions { display: flex; gap: 1rem; justify-content: center; }
+.hero-actions .btn-outline { border-color: var(--color-blanco); color: var(--color-blanco); }
+.hero-actions .btn-outline:hover { background: var(--color-blanco); color: var(--color-azul); }
+.destacados {
+  background: var(--color-blanco); padding: 2rem; border-radius: var(--radio);
+  box-shadow: var(--sombra); border-top: 4px solid var(--color-naranja);
+}
+.destacados h2 { color: var(--color-azul); margin-bottom: .5rem; }

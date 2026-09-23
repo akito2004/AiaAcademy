@@ -1,0 +1,124 @@
+.curso-detalle {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.enlace-regreso {
+    color: #1a237e;
+    font-size: 15px;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.curso-detalle h1 {
+    color: #1a237e;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.fila-precio {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.precio-grande {
+    font-size: 28px;
+    font-weight: bold;
+    color: #16a34a;
+}
+
+.etiqueta-gratis {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.seccion {
+    margin-bottom: 35px;
+}
+
+.seccion h2 {
+    font-size: 20px;
+    color: #374151;
+    margin-bottom: 12px;
+}
+
+.seccion p {
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+.caja-docente {
+    background: #f3f4f6;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e5e7eb;
+}
+
+.fila-docente {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.avatar-docente {
+    width: 60px;
+    height: 60px;
+    background: #1a237e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nombre-docente {
+    color: #1a237e;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.correo-docente {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.temario {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.leccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.leccion .num {
+    color: #16a34a;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.leccion .titulo {
+    flex: 1;
+    color: #1f2937;
+}
+
+.leccion .duracion {
+    color: #9ca3af;
+    font-size: 13px;
+}

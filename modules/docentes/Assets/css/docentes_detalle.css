@@ -1,0 +1,521 @@
+/* =============================================
+   docentes_detalle.css — Perfil Docente Completo
+   AiaAcademy | Diseño Premium
+   ============================================= */
+
+/* === RESETEO Y BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === FONDO PANTALLA COMPLETA === */
+.pagina-detalle-docente {
+    min-height: 100vh;
+    background: linear-gradient(135deg, 
+        #020617 0%, 
+        #0f172a 25%, 
+        #111827 50%, 
+        #0f172a 75%, 
+        #020617 100%);
+    background-attachment: fixed;
+    padding: 32px 24px 100px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.pagina-detalle-docente::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(96, 165, 250, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* === BOTÓN VOLVER === */
+.boton-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 36px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.boton-volver:hover {
+    color: #ffffff;
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateX(-6px);
+}
+
+.boton-volver:active {
+    transform: translateX(-3px);
+}
+
+/* === SECCIÓN PERFIL PRINCIPAL === */
+.seccion-perfil {
+    margin-bottom: 64px;
+}
+
+.tarjeta-perfil {
+    background: linear-gradient(145deg, 
+        rgba(30, 41, 59, 0.7), 
+        rgba(15, 23, 42, 0.8));
+    border-radius: 24px;
+    padding: 44px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    box-shadow: 
+        0 25px 50px rgba(15, 23, 42, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-perfil::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(59, 130, 246, 0.6), 
+        rgba(96, 165, 250, 0.6), 
+        transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tarjeta-perfil:hover::before {
+    opacity: 1;
+}
+
+/* === FOTO DEL DOCENTE === */
+.bloque-foto {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.bloque-foto::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 24px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.4s ease;
+}
+
+.tarjeta-perfil:hover .bloque-foto::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.foto-perfil {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 3px solid rgba(59, 130, 246, 0.25);
+    box-shadow: 
+        0 20px 40px rgba(15, 23, 42, 0.6),
+        0 0 0 1px rgba(59, 130, 246, 0.1) inset;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    display: block;
+}
+
+.foto-perfil:hover {
+    transform: scale(1.03);
+    box-shadow: 
+        0 25px 50px rgba(15, 23, 42, 0.7),
+        0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.foto-placeholder-grande {
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1e293b, #334155, #1e293b);
+    background-size: 200% 200%;
+    animation: gradienteAnimado 6s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 96px;
+    font-weight: 700;
+    color: #60a5fa;
+    border: 3px solid rgba(59, 130, 246, 0.25);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.5);
+}
+
+@keyframes gradienteAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* === INFORMACIÓN PRINCIPAL === */
+.bloque-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.nombre-completo {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.especialidad-principal {
+    color: #60a5fa;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 24px 0;
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.linea-divisoria {
+    height: 2px;
+    background: linear-gradient(90deg, 
+        rgba(59, 130, 246, 0.4), 
+        rgba(59, 130, 246, 0.1) 50%, 
+        transparent);
+    margin: 0 0 28px 0;
+    border-radius: 1px;
+}
+
+/* === DATOS DE CONTACTO === */
+.datos-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 36px;
+}
+
+.dato-fila {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: rgba(15, 23, 42, 0.4);
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.dato-fila:hover {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(59, 130, 246, 0.2);
+    transform: translateX(4px);
+}
+
+.icono {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.enlace-dato {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.enlace-dato:hover {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+/* === ESTADÍSTICAS === */
+.estadisticas-docente {
+    display: flex;
+    gap: 40px;
+}
+
+.dato-estadistica {
+    text-align: center;
+    padding: 16px 24px;
+    background: rgba(15, 23, 42, 0.4);
+    border-radius: 14px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    min-width: 100px;
+    transition: all 0.3s ease;
+}
+
+.dato-estadistica:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
+}
+
+.dato-estadistica .numero {
+    display: block;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.dato-estadistica .etiqueta {
+    color: #94a3b8;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* === SECCIÓN CURSOS === */
+.seccion-cursos {
+}
+
+.titulo-seccion {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 28px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.titulo-seccion::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), transparent);
+}
+
+.grid-cursos-docente {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 24px;
+}
+
+.tarjeta-curso-mini {
+    background: linear-gradient(135deg, 
+        rgba(30, 41, 59, 0.5), 
+        rgba(15, 23, 42, 0.6));
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    text-decoration: none;
+    display: flex;
+    gap: 18px;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.tarjeta-curso-mini::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(59, 130, 246, 0.05), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.tarjeta-curso-mini:hover {
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 30px rgba(15, 23, 42, 0.5),
+        0 0 0 1px rgba(59, 130, 246, 0.1) inset;
+}
+
+.tarjeta-curso-mini:hover::before {
+    left: 100%;
+}
+
+.miniatura-curso {
+    width: 110px;
+    height: 75px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.img-miniatura {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-curso-mini:hover .img-miniatura {
+    transform: scale(1.1);
+}
+
+.sin-imagen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #60a5fa;
+}
+
+.info-curso-mini {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo-curso-mini {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+}
+
+.desc-curso-mini {
+    color: #94a3b8;
+    font-size: 13px;
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+}
+
+.ver-curso-enlace {
+    color: #60a5fa;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.tarjeta-curso-mini:hover .ver-curso-enlace {
+    transform: translateX(5px);
+    display: inline-block;
+}
+
+.sin-cursos {
+    text-align: center;
+    padding: 80px 20px;
+    color: #94a3b8;
+    font-size: 16px;
+    background: rgba(15, 23, 42, 0.3);
+    border-radius: 16px;
+    border: 1px dashed rgba(59, 130, 246, 0.2);
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 900px) {
+    .tarjeta-perfil {
+        padding: 32px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .estadisticas-docente {
+        justify-content: center;
+    }
+
+    .datos-contacto {
+        align-items: center;
+    }
+
+    .dato-fila {
+        justify-content: center;
+    }
+
+    .grid-cursos-docente {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo-seccion {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagina-detalle-docente {
+        padding: 20px 16px 60px;
+    }
+
+    .tarjeta-perfil {
+        padding: 24px;
+    }
+
+    .foto-perfil, 
+    .foto-placeholder-grande {
+        width: 200px;
+        height: 200px;
+    }
+
+    .nombre-completo {
+        font-size: 26px;
+    }
+
+    .estadisticas-docente {
+        gap: 16px;
+    }
+
+    .dato-estadistica {
+        padding: 12px 16px;
+    }
+
+    .grid-cursos-docente {
+        gap: 16px;
+    }
+
+    .tarjeta-curso-mini {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .miniatura-curso {
+        width: 100%;
+        height: 120px;
+    }
+}

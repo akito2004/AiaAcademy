@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Si el archivo/carpeta existe → dejarlo pasar directo
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirigir todo al Front Controller del proyecto
+RewriteRule ^ public/index.php [L,QSA]

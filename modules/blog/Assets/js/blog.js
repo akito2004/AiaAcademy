@@ -1,0 +1,2 @@
+﻿// JS del modulo Blog
+
